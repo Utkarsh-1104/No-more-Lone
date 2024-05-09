@@ -22,7 +22,7 @@ io.on('connection', (socket) => {
     })
 
     socket.on('disconnect', () => {
-        eval(alert('User disconnected'))
+        console.log('User disconnected')
     })
 })
 
