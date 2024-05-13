@@ -22,18 +22,16 @@ function App() {
       setReceivedMsg(msg)
     })
     setSendMsg('')
-    setUserId('')
   }
 
   React.useEffect(() => {
     const socket = io('http://localhost:3000')
     socket.on('connect', () => {
-      setSocketId(socket.id)
+      console.log('connected with ', socket.id);
     })
-
-    return () => {
-      socket.disconnect();
-    };
+    socket.on('welcome', (s) => {
+      console.log(s);
+    })
   }, [])
 
   return (
